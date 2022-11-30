@@ -5,22 +5,17 @@ function SectionOne() {
     const[message, setMessage] = useState([])
 
 
-    useEffect(() => {
-      axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then(res =>{
-        setMessage([...message].concat(res.data))
-      })
-      .catch(error =>{
-        console.log(error)
-      })    
-
-    }, [])
-    
-    const connectHandler =() =>{
-        alert("Not yet connectetd")
+   
+    const updateTerminal = (log) => {
+        setMessage([log, ...message])
     }
-    const startHandler =() =>{
-        alert("Bot not yet started")
+
+    const connectHandler = () =>{
+        updateTerminal('Metamask connection initialized')
+    }
+
+    const startHandler = () =>{
+        updateTerminal('Bot system initiated')
     }
 
     const clearHandler =() =>{
@@ -33,43 +28,53 @@ function SectionOne() {
     <div className='text-left lg:h-[100vh] px-[3rem] py-[1rem] font-manrope'>
         <header className='flex justify-between items-center mb-[20px]'>
             <div className='left'>
-                <span className='font-bold text-[28px]'>PancakeSwap</span>
+                <span className='font-bold text-[40px]'>CakeAi 🍰</span>
             </div>
             <div className='right'>
-                <span className='hidden md:inline-block'>Not connected</span>
-                <button onClick={connectHandler} className='hover:opacity-80 bg-[#4C6EF5] ml-[15px] text-white rounded-md font-semibold py-[5px] px-[1rem]' >Connect</button>
+                <span className='hidden md:inline-block text-[#7f7f7f] text-[14px]'><i>Not connected</i></span>
+                <button onClick={connectHandler} className='hover:opacity-70 bg-[#4C6EF5] ml-[15px] text-white rounded-md font-semibold py-[5px] px-[1rem]'>Connect</button>
             </div>
         </header>
         <main className='font-open '>
-            <p className='text-[18px] '>
-                Pancake & DogeBets Prediction 
+            <p className='text-[22px] px-[4px] py-[1rem]'>
+            PancakeSwap Prediction Bot 🤖
             </p>
-            <p>Enter your private test key to the input field. Your private key is securely stored on your local machine.</p>
-            <p>Press set button to set private key.</p>
-            <p>Press Start The Bot button to start the bot</p>
-            <p>Don't close the browser. You can use any websites,</p>
-            <p>but dont send any transaction from your wallet when the bot is working,</p>
-            <p>because you break bot's timer</p>
-            <p>Bot will automatically claim all your profit.</p>
 
-            <p>IMPORTANT! Open Extensions - PancakeSwap testing Prediction Winner - Developer Mode ON - service worker.</p>
-            <p>Otherwise the bot will sleep</p>
-            <p>Good luck!</p>
+            <p className='text-[14px] px-[12px] py-[4px]'>
+                🛠 Connect your Metamask wallet
+            </p>
+
+            <p className='text-[14px] px-[12px] py-[4px]'>
+                💰 Make sure you have enough BNB on your Metamask wallet
+            </p>
+
+            <p className='text-[14px] px-[12px] py-[4px]'>
+               📈 Every 5 minutes, the bot places bet with <b>0.2BNB</b>
+            </p>
+
+            <p className='text-[14px] px-[12px] py-[4px]'>
+                🧵 You will see status of bets as they occur
+            </p>
+
+            <p className='text-[14px] px-[12px] py-[4px]'>
+               🚀 Good luck
+            </p>
+           
 
             <div className='flex flex-wrap gap-10 mt-[20px]'>
-                <div className='w-[100%] px-4 py-2 box-border overflow-scroll focus:outline-[#4C6EF5] h-[350px] border-[1.5px] border-gray200 bg-[#F4F6F8] rounded-lg'>
+                <div className='w-[100%] px-4 py-2 box-border overflow-scroll focus:outline-[#4C6EF5] h-[420px] border-[1.5px] border-gray200 bg-[#F4F6F8] rounded-lg'>
                    <ul>
                     {
-                        message.map(log => <li key={log.id} className='mb-2 '>
-                            {log.title}
+                        message.map(log => <li className='mb-2 text-[13px] '>
+                            {log}
                         </li>)
                     }
                   
                    
                    </ul>
                 </div>
-                <button onClick={startHandler} className='hover:opacity-80 py-[10px] md:w-[60%] font-semibold text-white rounded-md bg-[#4C6EF5]'>Start the bot</button>
-                <button onClick={clearHandler} className='hover:opacity-80 font-manrope py-[10px] font-semibold bg-[#BABDC1] rounded-md w-[30%]'>Clear</button>
+                <button onClick={startHandler} className='hover:opacity-70 font-manrope py-[10px] font-semibold bg-[#4C6EF5] rounded-md w-[68%] text-white'>Start the bot</button>
+                <button onClick={clearHandler} className='hover:opacity-70 font-manrope py-[10px] font-semibold bg-[#c8cbce] rounded-md w-[28%] text-white'>Clear logs</button>
             </div>
         </main>
     </div>

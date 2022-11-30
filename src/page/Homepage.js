@@ -1,10 +1,10 @@
 import React from 'react'
-import SectionOne from '../components/sectionOne/SectionOne'
+import Home from '../components/Home'
 
 function Homepage() {
   return (
     <div>
-        <SectionOne />
+        <Home />
     </div>
   )
 }

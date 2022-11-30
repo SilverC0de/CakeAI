@@ -4,7 +4,6 @@ import axios from 'axios';
 function SectionOne() {
     const[message, setMessage] = useState([])
 
-
    
     const updateTerminal = (log) => {
         setMessage([log, ...message])
@@ -37,7 +36,7 @@ function SectionOne() {
         </header>
         <main className='font-open '>
             <p className='text-[22px] px-[4px] py-[1rem]'>
-            PancakeSwap Prediction Bot 🤖
+            PancakeSwap Prediction Bot
             </p>
 
             <p className='text-[14px] px-[12px] py-[4px]'>
